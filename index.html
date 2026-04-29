@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talk to Sam</title>
+    <style>
+        body {
+            background-color: #0f172a; /* Dark slate background */
+            color: #f8fafc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 { margin-bottom: 10px; }
+        p { color: #94a3b8; }
+    </style>
+</head>
+<body>
+
+    <h1>Sam is ready to talk</h1>
+    <p>Click the microphone icon in the corner to begin.</p>
+
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        /* FIXED: Using your actual Hostinger domain instead of localhost */
+        js.src = 'https://dograh-fpyz.srv923105.hstgr.cloud/embed/dograh-widget.js?token=emb_WajR6AnWkCJ7pSsoavROrN4-MMc-qmfPnsYY1NB2Jkc&environment=production&apiEndpoint=https://api-dograh-fpyz.srv923105.hstgr.cloud';
+        js.async = true;
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'dograh-widget'));
+    </script>
+
+</body>
+</html>
