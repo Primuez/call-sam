@@ -20,7 +20,6 @@
         h1 { margin-bottom: 10px; }
         p { color: #94a3b8; margin-bottom: 30px; }
         
-        /* The Start Call Button */
         .call-button {
             background-color: #3b82f6;
             color: white;
@@ -35,7 +34,6 @@
         }
         .call-button:hover { background-color: #2563eb; }
 
-        /* The invisible box Dograh needs to draw the UI */
         #dograh-inline-container {
             width: 100%;
             max-width: 400px;
@@ -49,7 +47,7 @@
     <h1>Sam is ready to talk</h1>
     <p>Click the button below to connect to the AI Assistant.</p>
 
-    <button class="call-button" onclick="window.DograhWidget && window.DograhWidget.start()">
+    <button class="call-button" onclick="if(window.DograhWidget) { window.DograhWidget.start(); } else { alert('ERROR: The Dograh Widget has not loaded yet or failed to connect to your server. Check the F12 Console.'); }">
         Start Voice Call
     </button>
 
@@ -62,6 +60,11 @@
         js = d.createElement(s); js.id = id;
         js.src = 'https://dograh-fpyz.srv923105.hstgr.cloud/embed/dograh-widget.js?token=emb_WajR6AnWkCJ7pSsoavROrN4-MMc-qmfPnsYY1NB2Jkc&environment=production&apiEndpoint=https://api-dograh-fpyz.srv923105.hstgr.cloud';
         js.async = true;
+        
+        // Added error logging so we can see if Hostinger rejects the request
+        js.onload = function() { console.log("SUCCESS: Dograh widget downloaded from Hostinger."); };
+        js.onerror = function() { alert("FATAL ERROR: Your browser blocked the connection to dograh-fpyz.srv923105.hstgr.cloud. Check the F12 console."); };
+
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'dograh-widget'));
     </script>
