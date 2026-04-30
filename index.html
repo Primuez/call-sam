@@ -17,40 +17,23 @@
             margin: 0;
             text-align: center;
         }
-        h1 { margin-bottom: 10px; }
-        p { color: #94a3b8; margin-bottom: 30px; }
         
-        .call-button {
-            background-color: #3b82f6;
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        .call-button:hover { background-color: #2563eb; }
+        /* Removed the old blue button CSS */
 
         #dograh-inline-container {
             width: 100%;
             max-width: 400px;
-            min-height: 100px;
+            min-height: 400px; /* Made this bigger so the widget has room */
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Sam is ready to talk</h1>
-    <p>Click the button below to connect to the AI Assistant.</p>
-
-    <button class="call-button" onclick="if(window.DograhWidget) { window.DograhWidget.start(); } else { alert('ERROR: The Dograh Widget has not loaded yet or failed to connect to your server. Check the F12 Console.'); }">
-        Start Voice Call
-    </button>
-
+    <!-- You can change or remove this text if you want! -->
+    <h1>Talk to Sam</h1>
+    
+    <!-- The widget will render right here -->
     <div id="dograh-inline-container"></div>
 
     <script>
@@ -59,13 +42,9 @@
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
         
-        // THE FIX: Pulling the script from your GitHub repo instead of Hostinger!
         js.src = 'dograh-widget.js?token=emb_WajR6AnWkCJ7pSsoavROrN4-MMc-qmfPnsYY1NB2Jkc&environment=production&apiEndpoint=https://api-dograh-fpyz.srv923105.hstgr.cloud';
         js.async = true;
         
-        js.onload = function() { console.log("SUCCESS: Dograh widget downloaded from GitHub!"); };
-        js.onerror = function() { alert("FATAL ERROR: Failed to load local script."); };
-
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'dograh-widget'));
     </script>
