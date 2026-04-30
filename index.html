@@ -58,12 +58,13 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = 'https://dograh-fpyz.srv923105.hstgr.cloud/embed/dograh-widget.js?token=emb_WajR6AnWkCJ7pSsoavROrN4-MMc-qmfPnsYY1NB2Jkc&environment=production&apiEndpoint=https://api-dograh-fpyz.srv923105.hstgr.cloud';
+        
+        // THE FIX: Pulling the script from your GitHub repo instead of Hostinger!
+        js.src = 'dograh-widget.js?token=emb_WajR6AnWkCJ7pSsoavROrN4-MMc-qmfPnsYY1NB2Jkc&environment=production&apiEndpoint=https://api-dograh-fpyz.srv923105.hstgr.cloud';
         js.async = true;
         
-        // Added error logging so we can see if Hostinger rejects the request
-        js.onload = function() { console.log("SUCCESS: Dograh widget downloaded from Hostinger."); };
-        js.onerror = function() { alert("FATAL ERROR: Your browser blocked the connection to dograh-fpyz.srv923105.hstgr.cloud. Check the F12 console."); };
+        js.onload = function() { console.log("SUCCESS: Dograh widget downloaded from GitHub!"); };
+        js.onerror = function() { alert("FATAL ERROR: Failed to load local script."); };
 
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'dograh-widget'));
